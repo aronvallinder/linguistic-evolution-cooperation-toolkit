@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local env files / secrets
+.env
+.env.*
+
+# Editor / tooling
+.cursor/
+
+# OS
+.DS_Store
+
+# Generated artifacts (keep small canonical examples only)
+data/plots/
+plots/
+data/json/
+!data/json/main_loop/
+!data/json/main_loop/task_order/
+!data/json/main_loop/task_order/*.json
+
+

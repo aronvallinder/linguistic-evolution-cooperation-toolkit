@@ -1,0 +1,160 @@
+base_models:
+  #llama70b: "meta-llama/llama-3.3-70b-instruct"
+  llama8b: "meta-llama/llama-3.1-8b-instruct"
+  #gpt4_main: "openai/gpt-4o"              # main OpenAI option
+  #gpt4_cheaper: "openai/gpt-4o-mini"      # cheaper OpenAI option
+  # gpt5_nano: "openai/gpt-5-nano"
+  # claude_main: "anthropic/claude-3.5-sonnet"   # strong, mid-priced
+  # claude_cheaper: "anthropic/claude-3-haiku"   # cheapest Claude
+  # deepseek_v3: "deepseek/deepseek-chat-v3-0324"   # deepseek v3
+
+# Prompt Templates - System prompt variations
+prompt_templates:
+  trust_game_default: |
+    You are an agent in a trust game. You will play different roles across rounds.
+
+    When you are the INVESTOR:
+    - You receive ${endowment} each round
+    - You decide how much to SEND to the TRUSTEE ($0-${endowment})
+    - You can defect by sending $0
+    - Amount sent is multiplied by {multiplier}x
+    - Trustee decides how much to RETURN
+    - Trustee can defect by returning $0
+    - You keep: ${endowment} - sent + returned
+    - Trustee keeps: received - returned
+    - Response format: {{'send': <amount>, 'reason': <reasoning>}}
+
+    When you are the TRUSTEE:
+    - Investor receives ${endowment}
+    - Investor decides how much to SEND to you ($0-${endowment})
+    - Investor can defect by sending $0
+    - Amount sent is multiplied by {multiplier}x
+    - You decide how much to RETURN
+    - You can defect by returning $0
+    - Investor keeps: ${endowment} - sent + returned
+    - You keep: received - returned
+    - Response format: {{'return': <amount>, 'reason': <reasoning>}}
+
+    IMPORTANT: Always respond in the correct format based on your current role. 
+
+  myth_writing_default: |
+    Write a myth about {myth_topic}. Write 200 words.
+
+  myth_writing_later_rounds: |
+    Here is the myth you wrote in the previous round:
+    {last_myth}
+
+    Here is the myth the other agent wrote in the previous round:
+    {other_agent_myth}
+
+    Write your own myth. Use your previous myth as inspiration, but adapt it in your own way.
+    Write 200 words. Format exactly:
+    Myth: [your story here].
+
+# Personas - Character/behavior variations
+personas:
+  neutral:
+    description: "neutral"
+    system_addition: ""
+
+  altruistic:
+    description: "altruistic"
+    system_addition: "You tend to prioritize others' welfare and act generously, even at personal cost."
+
+  selfish:
+    description: "selfish"
+    system_addition: "You prioritize your own interests and payoffs above all else."
+
+  cautious:
+    description: "cautious"
+    system_addition: "You are risk-averse and prefer safe, conservative choices."
+
+  risk_taking:
+    description: "risk_taking"
+    system_addition: "You are comfortable with risk and willing to make bold moves for potential rewards."
+
+# Game Parameters - Simulation settings
+game_parameters:
+  # Core game settings
+  endowment: 5
+  multiplier: 3
+  num_turns: 20
+  num_agents: 2
+
+  # AI settings
+  temperature: 0.8
+  memory_capacity: 3
+
+  # Task order variations
+  task_orders:
+    - ["game"]
+    - ["myth"]
+    - ["game", "myth"]
+    - ["myth", "game"]
+
+# Experiment Sets - Define different experimental conditions
+experiment_sets:
+  # Small pilot test with limited combinations
+  pilot:
+    models: ["llama8b"]
+    templates: ["trust_game_default"]
+    personas: ["neutral"]
+    task_orders: [["game", "myth"]]
+    game_params:
+      num_turns: 1000
+
+  # Compare persona effects
+  persona_comparison:
+    models: ["llama8b"]
+    templates: ["trust_game_default"]
+    personas: ["neutral"]  # Will expand to all personas
+    task_orders: [["game", "myth"]]
+    game_params:
+      num_turns: 2
+
+  # Compare model performance
+  model_comparison:
+    models: "all"  # Will expand to all models
+    templates: ["trust_game_default"]
+    personas: ["neutral", "selfish"]
+    task_orders: [["game"], ["myth"], ["game", "myth"]]
+    game_params:
+      num_turns: 50
+
+    # Compare model performance
+  model_comparison_cooperation:
+    models: "all"  # Will expand to all models
+    templates: ["trust_game_default"]
+    personas: ["selfish"]
+    task_orders: [["game", "myth"]]
+    game_params:
+      num_turns: 50
+
+  # Compare model performance
+  # NOTE: task orders should be set as [["game"], ["myth"], ["myth", "game"]]
+  model_comparison_task_order:
+    models: ["gpt5_nano"]  # Will expand to all models
+    templates: ["trust_game_default"]
+    personas: ["neutral"]
+    #task_orders: [["game"], ["myth"], ["myth", "game"]]
+    task_orders: [["myth", "game"]]
+    game_params:
+      num_turns: 50
+
+  # Test different task orders
+  task_order_study:
+    models: ["llama70b"]
+    templates: ["trust_game_default"]
+    personas: ["neutral"]
+    task_orders: "all"  # Will expand to all task orders
+    game_params:
+      num_turns: 6
+
+  # Full factorial design (large experiment)
+  full_factorial:
+    models: "all"
+    templates: "all"
+    personas: "all"
+    task_orders: "all"
+    game_params:
+      num_turns: 10
