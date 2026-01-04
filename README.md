@@ -4,9 +4,9 @@ Configuration-driven experiments for multi-agent LLM behavior in a repeated Trus
 
 ## Quick start
 
-- **Install (runtime)**:
+- **Install**:
   - `pip install -r requirements.txt`
-- **Set API keys (don’t commit these)**:
+- **Set API keys**:
   - Copy `env.example` → `.env` and export variables in your shell:
     - `OPENROUTER_API_KEY` (for simulations via OpenRouter)
     - `TOGETHER_API_KEY` (only for LLM-judge myth similarity)
