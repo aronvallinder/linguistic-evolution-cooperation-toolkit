@@ -3,16 +3,108 @@ from collections import Counter
 
 
 # -----------------------------------------------------------------------------
-# API KEYS
+# API KEYS & CLIENT CONFIGURATION
 # -----------------------------------------------------------------------------
 
+# Supported providers and their configurations
+PROVIDER_CONFIGS = {
+    "openrouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "env_var": "OPENROUTER_API_KEY",
+        "default_model": "meta-llama/llama-3.1-8b-instruct",
+    },
+    "openai": {
+        "base_url": None,  # Uses default OpenAI URL
+        "env_var": "OPENAI_API_KEY",
+        "default_model": "gpt-4o-mini",
+    },
+    "gemini": {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+        "env_var": "GEMINI_API_KEY",
+        "default_model": "gemini-2.0-flash",
+    },
+}
+
+
+def get_llm_provider() -> str:
+    """
+    Determine which LLM provider to use based on available environment variables.
+
+    Priority: LLM_PROVIDER env var > first available API key
+
+    Returns:
+        str: Provider name ('openrouter', 'openai', or 'gemini')
+    """
+    # Check if explicitly set
+    explicit = os.environ.get("LLM_PROVIDER", "").lower()
+    if explicit in PROVIDER_CONFIGS:
+        return explicit
+
+    # Auto-detect based on available keys
+    if os.environ.get("OPENROUTER_API_KEY"):
+        return "openrouter"
+    if os.environ.get("OPENAI_API_KEY"):
+        return "openai"
+    if os.environ.get("GEMINI_API_KEY"):
+        return "gemini"
+
+    raise EnvironmentError(
+        "No API key found. Set one of: OPENROUTER_API_KEY, OPENAI_API_KEY, or GEMINI_API_KEY.\n"
+        "Optionally set LLM_PROVIDER to explicitly choose: 'openrouter', 'openai', or 'gemini'."
+    )
+
+
+def get_api_key(provider: str = None) -> str:
+    """
+    Get API key for the specified or auto-detected provider.
+    """
+    if provider is None:
+        provider = get_llm_provider()
+
+    config = PROVIDER_CONFIGS.get(provider)
+    if not config:
+        raise ValueError(f"Unknown provider: {provider}")
+
+    key = os.environ.get(config["env_var"])
+    if not key:
+        raise EnvironmentError(f"Missing API key. Set {config['env_var']}.")
+    return key
+
+
+def get_client_config(provider: str = None) -> dict:
+    """
+    Get OpenAI client configuration for the specified or auto-detected provider.
+
+    Returns:
+        dict with 'api_key' and optionally 'base_url'
+    """
+    if provider is None:
+        provider = get_llm_provider()
+
+    config = PROVIDER_CONFIGS.get(provider)
+    if not config:
+        raise ValueError(f"Unknown provider: {provider}")
+
+    result = {"api_key": get_api_key(provider)}
+    if config["base_url"]:
+        result["base_url"] = config["base_url"]
+
+    return result
+
+
+def get_default_model(provider: str = None) -> str:
+    """Get the default model for the specified or auto-detected provider."""
+    if provider is None:
+        provider = get_llm_provider()
+    return PROVIDER_CONFIGS[provider]["default_model"]
+
+
+# Legacy function for backward compatibility
 def get_openrouter_api_key() -> str:
     """
     Return the API key for OpenRouter usage.
 
-    Env var precedence:
-    - OPENROUTER_API_KEY (preferred)
-    - OPENAI_API_KEY (fallback; common name for OpenAI-compatible clients)
+    DEPRECATED: Use get_api_key() instead.
     """
     key = os.environ.get("OPENROUTER_API_KEY") or os.environ.get("OPENAI_API_KEY")
     if not key:

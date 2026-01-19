@@ -1,15 +1,34 @@
+# =============================================================================
+# MODEL CONFIGURATION
+# =============================================================================
+# The system auto-detects your LLM provider based on environment variables:
+#   - OPENAI_API_KEY    -> uses OpenAI directly
+#   - GEMINI_API_KEY    -> uses Gemini directly
+#   - OPENROUTER_API_KEY -> uses OpenRouter (can access multiple providers)
+#
+# You can also set LLM_PROVIDER explicitly: "openai", "gemini", or "openrouter"
+#
+# Use "default" in experiment sets to auto-select the right model for your provider.
+# Or specify model keys below for more control.
+
 base_models:
-  #llama70b: "meta-llama/llama-3.3-70b-instruct"
+  # OpenRouter models (requires OPENROUTER_API_KEY)
   llama8b: "meta-llama/llama-3.1-8b-instruct"
-  #gpt4_main: "openai/gpt-4o"              # main OpenAI option
-  #gpt4_cheaper: "openai/gpt-4o-mini"      # cheaper OpenAI option
-  # gpt5_nano: "openai/gpt-5-nano"
-  # claude_main: "anthropic/claude-3.5-sonnet"   # strong, mid-priced
-  # claude_cheaper: "anthropic/claude-3-haiku"   # cheapest Claude
-  # deepseek_v3: "deepseek/deepseek-chat-v3-0324"   # deepseek v3
+  llama70b: "meta-llama/llama-3.3-70b-instruct"
+
+  # OpenAI models (requires OPENAI_API_KEY) - use these names directly
+  gpt4o: "gpt-4o"
+  gpt4o_mini: "gpt-4o-mini"
+  gpt35: "gpt-3.5-turbo"
+
+  # Gemini models (requires GEMINI_API_KEY) - use these names directly
+  gemini_flash: "gemini-2.0-flash"
+  gemini_pro: "gemini-1.5-pro"
+  gemini_flash_15: "gemini-1.5-flash"
 
 # Prompt Templates - System prompt variations
 prompt_templates:
+  # Trust Game Templates
   trust_game_default: |
     You are an agent in a trust game. You will play different roles across rounds.
 
@@ -51,6 +70,26 @@ prompt_templates:
     Write 200 words. Format exactly:
     Myth: [your story here].
 
+  # Donor Game Templates
+  donor_game_default: |
+    You are participating in a Donor Game with {population_size} agents.
+
+    GAME RULES:
+    - Each agent starts with {initial_resources} resource units
+    - Each round, agents are randomly paired with another agent
+    - When paired, you decide how much of your resources to donate to your partner
+    - Donations are multiplied: if you donate X, your partner receives X × {donation_multiplier}
+    - Your partner also decides how much to donate to you (simultaneously)
+    - You can donate any amount from 0 up to your current resources
+    - You cannot go into negative resources
+
+    DECISION PROCESS:
+    Each round you will be asked to:
+    1. First, provide your reasoning about how much to donate
+    2. Then, specify the exact donation amount
+
+    Your goal is to navigate this social dilemma effectively.
+
 # Personas - Character/behavior variations
 personas:
   neutral:
@@ -75,7 +114,7 @@ personas:
 
 # Game Parameters - Simulation settings
 game_parameters:
-  # Core game settings
+  # Core game settings (Trust Game)
   endowment: 5
   multiplier: 3
   num_turns: 20
@@ -89,6 +128,32 @@ game_parameters:
   task_orders:
     - ["game"]
     - ["myth"]
+    - ["game", "myth"]
+    - ["myth", "game"]
+
+# Donor Game Parameters - Settings specific to the Donor Game
+donor_game_parameters:
+  # Core game settings
+  initial_resources: 100
+  donation_multiplier: 2
+  population_size: 6  # Must be even
+  num_turns: 20
+
+  # Observable history settings
+  context_depth: 2    # How far back in donation chains to trace
+  context_width: 2    # How many parallel donation branches to follow
+
+  # AI settings
+  temperature: 0.8
+  memory_capacity: 5
+
+  # Myth visibility settings
+  myth_visibility: "all"  # "all" or "recent_partners"
+  myth_partner_rounds: 3  # How many rounds back for recent_partners mode
+
+  # Task order variations (same as trust game)
+  task_orders:
+    - ["game"]
     - ["game", "myth"]
     - ["myth", "game"]
 
@@ -158,3 +223,83 @@ experiment_sets:
     task_orders: "all"
     game_params:
       num_turns: 10
+
+# Donor Game Experiment Sets
+# Note: Use "default" for models to auto-select based on your API key
+donor_experiment_sets:
+  # Small pilot test for donor game - uses auto-detected model
+  donor_pilot:
+    models: ["default"]
+    personas: ["neutral"]
+    task_orders: [["game"]]
+    game_params:
+      initial_resources: 100
+      donation_multiplier: 2
+      population_size: 4
+      num_turns: 5
+      context_depth: 1
+      context_width: 1
+      myth_visibility: "all"
+      myth_partner_rounds: 1
+
+  # Test with myth generation
+  donor_with_myths:
+    models: ["default"]
+    personas: ["neutral"]
+    task_orders: [["game", "myth"]]
+    game_params:
+      initial_resources: 100
+      donation_multiplier: 2
+      population_size: 6
+      num_turns: 10
+      context_depth: 2
+      context_width: 2
+      myth_visibility: "all"
+      myth_partner_rounds: 2
+
+  # Compare myth visibility modes
+  donor_myth_visibility_comparison:
+    models: ["default"]
+    personas: ["neutral"]
+    task_orders: [["game", "myth"]]
+    game_params:
+      initial_resources: 100
+      donation_multiplier: 2
+      population_size: 6
+      num_turns: 15
+      context_depth: 2
+      context_width: 2
+    # Run twice: once with each visibility setting
+    myth_visibility_options: ["all", "recent_partners"]
+
+  # Compare different context depths
+  donor_context_depth_study:
+    models: ["default"]
+    personas: ["neutral"]
+    task_orders: [["game"]]
+    game_params:
+      initial_resources: 100
+      donation_multiplier: 2
+      population_size: 8
+      num_turns: 20
+    # Will create runs for each depth/width combination
+    context_variations:
+      - {context_depth: 1, context_width: 1}
+      - {context_depth: 2, context_width: 1}
+      - {context_depth: 2, context_width: 2}
+      - {context_depth: 3, context_width: 2}
+
+  # Full donor game study
+  donor_full_study:
+    models: ["default"]
+    personas: ["neutral", "altruistic", "selfish"]
+    task_orders: [["game"], ["game", "myth"]]
+    game_params:
+      initial_resources: 100
+      donation_multiplier: 2
+      population_size: 10
+      num_turns: 30
+      context_depth: 2
+      context_width: 2
+      myth_visibility: "all"
+      myth_partner_rounds: 3
