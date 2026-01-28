@@ -94,35 +94,49 @@ def extract_per_agent_data(conversation_history: List[Dict], game_data: Dict) ->
         'received': [],
     } for agent in agents}
 
-    # Track donations and receipts per round per agent
+    # Track donations per round per agent
     donations_by_round = defaultdict(lambda: defaultdict(float))
     percentages_by_round = defaultdict(lambda: defaultdict(float))
-    received_by_round = defaultdict(lambda: defaultdict(float))
 
     for donation in donation_history:
         round_num = donation['round']
         donor = donation['donor_id']
-        recipient = donation['recipient_id']
         amount = donation['amount']
         percentage = donation['percentage']
 
         donations_by_round[round_num][donor] = amount
         percentages_by_round[round_num][donor] = percentage
-        # Received amount includes multiplier effect (stored in history as the donated amount)
-        # The actual received amount would be amount * multiplier, but we track donated amount here
-        received_by_round[round_num][recipient] += amount
 
     # Extract balance trajectory from conversation history
+    # Derive actual received amount (including multiplier) from balance changes:
+    #   received = balance_after - balance_before + donated
+    prev_balances = {}
     for entry in conversation_history:
         round_num = entry['round']
         balances = entry.get('balances', {})
 
         for agent in agents:
+            donated = donations_by_round[round_num].get(agent, 0)
+            balance_after = balances.get(agent, 0)
+            balance_before = prev_balances.get(agent, balance_after + donated - donated)
+
+            # On the first round, infer balance_before from donation metadata if available
+            if agent not in prev_balances:
+                # Use donor_balance_before from donation_history for first round
+                for d in donation_history:
+                    if d['round'] == round_num and d['donor_id'] == agent:
+                        balance_before = d['donor_balance_before']
+                        break
+
+            received = balance_after - balance_before + donated
+
             agent_data[agent]['rounds'].append(round_num)
-            agent_data[agent]['donations'].append(donations_by_round[round_num].get(agent, 0))
+            agent_data[agent]['donations'].append(donated)
             agent_data[agent]['percentages'].append(percentages_by_round[round_num].get(agent, 0))
-            agent_data[agent]['balances'].append(balances.get(agent, 0))
-            agent_data[agent]['received'].append(received_by_round[round_num].get(agent, 0))
+            agent_data[agent]['balances'].append(balance_after)
+            agent_data[agent]['received'].append(received)
+
+        prev_balances = dict(balances)
 
     return agent_data
 
@@ -206,8 +220,6 @@ def plot_numerical_trajectories(conversation_history: List[Dict],
         rounds = agent_data[agent]['rounds']
         donations = agent_data[agent]['donations']
         received = agent_data[agent]['received']
-        # Note: received here is the raw donated amount, actual received = received * multiplier
-        # For visualization, we show the donation flow pattern
         net_flow = [r - d for r, d in zip(received, donations)]
         ax4.plot(rounds, net_flow, marker='d', linewidth=2, markersize=6,
                 label=agent, color=agent_colors[agent], alpha=0.8)
