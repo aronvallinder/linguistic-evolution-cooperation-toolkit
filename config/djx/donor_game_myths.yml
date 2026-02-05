@@ -1,0 +1,83 @@
+# =============================================================================
+# Donor Game — Myth Prompt Variations Grid (djx configuration)
+# =============================================================================
+#
+# Run:
+#   djx config/djx/donor_game_myths.yml
+#   djx config/djx/donor_game_myths.yml --dry-run
+#
+# Grid: 5 myth themes × 2 task orders = 10 jobs.
+
+define:
+  config_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/config.yml
+  script_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/run.sh
+  log_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/log.log
+  output_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/result.json
+
+script_template: |
+  cd <<cwd>> && python3 experiments/run_donor_djx.py <<config_file>> > <<log_file>> 2>&1
+
+config_file: <<config_file>>
+script_file: <<script_file>>
+command: bash <<script_file>>
+
+meta:
+  project_id: donor_game_myths
+
+config:
+  model: default
+  persona_name: neutral
+  persona_system_addition: ""
+  output_path: <<output_file>>
+
+  game_params:
+    initial_resources: 100
+    donation_multiplier: 2
+    population_size: 6
+    context_depth: 2
+    context_width: 2
+
+  simulation_params:
+    num_turns: 20
+    temperature: 0.8
+    memory_capacity: 5
+    task_order:
+      - myth
+      - game
+    myth_visibility: all
+    myth_partner_rounds: 2
+
+  myth_params:
+    topic: cooperation and generosity
+    round_1_template: null
+    later_rounds_template: "Here is the myth you wrote in the previous round:\n{last_myth}\n\nHere is the myth the other agent wrote in the previous round:\n{other_agent_myth}\n\nWrite your own myth. Use your previous myth as inspiration, but adapt it in your own way.\nWrite 200 words. Format exactly:\nMyth: [your story here]."
+
+  labels:
+    myth_theme: default
+
+# =============================================================================
+# Grid — 5 myth themes × 2 task orders = 10 jobs
+# =============================================================================
+
+grid:
+  # Dimension 1: myth prompt theme
+  - - myth_params.round_1_template: "Write a myth about the rise and spread of moralizing supernatural agents and ritual life over the last 10\u201312 millennia. Include: increasingly potent moralizing agents, credible displays of faith, psychologically active rituals, high fertility, intergroup competition and conflict, group expansion and copying, beliefs arising as by-products later shaped over long cultural time. Write 200 words."
+      labels.myth_theme: moralizing_gods
+
+    - myth_params.round_1_template: "Write a myth about sacred oaths and covenants. Include: a public vow, a costly binding act, a temptation to break the vow, and a consequence that makes vow-keeping feel inevitable over time. Write 200 words."
+      labels.myth_theme: sacred_oaths
+
+    - myth_params.round_1_template: "Write a myth about reputation, gossip, and honor. Include: an unseen ledger (literal or metaphorical), information traveling beyond direct witnesses, a character choosing between short-term appetite and long-term standing, and a durable social pattern emerging from shared memory. Write 200 words."
+      labels.myth_theme: reputation_gossip
+
+    - myth_params.round_1_template: "Write a myth about hospitality and guest-right. Include: a traveler of uncertain identity, a host facing real cost and risk, a violation of guest-right by someone else, and a resolution that frames hospitality as sacred law (ritual, taboo, or custom), not mere kindness. Write 200 words."
+      labels.myth_theme: hospitality_guest_right
+
+    - myth_params.round_1_template: "Write a myth about a trickster who exploits others and the price that follows. Include: a clever betrayal that works once, detection (human or supernatural), a punishment that is costly to carry out, and a reason the cycle ends rather than escalating forever. Write 200 words."
+      labels.myth_theme: trickster_punishment
+
+  # Dimension 2: task order (myth only vs myth + game)
+  - - simulation_params.task_order: [myth]
+      labels.task_order: myth_only
+    - simulation_params.task_order: [myth, game]
+      labels.task_order: myth_then_game

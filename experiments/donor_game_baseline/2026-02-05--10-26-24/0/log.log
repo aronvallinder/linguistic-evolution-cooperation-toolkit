@@ -1,0 +1,1771 @@
+
+================================================================================
+DONOR GAME SIMULATION
+================================================================================
+LLM Provider: openai
+Model: gpt-4o-mini
+Population size: 6
+Initial resources: 100
+Donation multiplier: 2x
+Context depth: 2, width: 2
+Number of rounds: 20
+Task order: ['game']
+================================================================================
+
+================================================================================
+ROUND 1
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_5 ↔ Agent_3
+  Agent_2 ↔ Agent_6
+  Agent_1 ↔ Agent_4
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_4):
+  In this first round, I need to decide how much of my 100 resources to donate to Agent_4. Since there is no previous donation history available, I don't have any insight into Agent_4's past behavior, w...
+
+Agent_2 reasoning (paired with Agent_6):
+  In this first round of the Donor Game, I have a total of 100 units and a fresh allocation of 100 units to distribute between myself and my partner, Agent_6. Since this is the first round, I have no hi...
+
+Agent_3 reasoning (paired with Agent_5):
+  In this first round, I have no prior information about Agent_5's donation behavior, which makes my decision particularly challenging. Since I am starting with 100 accumulated resources and will receiv...
+
+Agent_4 reasoning (paired with Agent_1):
+  In this first round of the game, I am paired with Agent_1, and we have no observable history of their past donation behavior. Given that both agents start with 100 units and will receive an additional...
+
+Agent_5 reasoning (paired with Agent_3):
+  In this first round, I have no previous history about Agent_3's donation behavior, which makes it challenging to predict their actions. However, I must consider the potential benefits of cooperating w...
+
+Agent_6 reasoning (paired with Agent_2):
+  In this first round, I have a total of 100 units to allocate between myself and my partner, Agent_2. Since I have no previous donation history to inform my decision, I must consider both the potential...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 30}
+
+Agent_3 donation response: {"donation": 30}
+
+Agent_4 donation response: {"donation": 40}
+
+Agent_5 donation response: {"donation": 40}
+
+Agent_6 donation response: {"donation": 30}
+Agent_1 donates 40.0 to Agent_4
+Agent_2 donates 30.0 to Agent_6
+Agent_3 donates 30.0 to Agent_5
+Agent_4 donates 40.0 to Agent_1
+Agent_5 donates 40.0 to Agent_3
+Agent_6 donates 30.0 to Agent_2
+
+********************************************************************************
+ROUND 1 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_4: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_6: 30.0 units (30.0% of resources)
+  Agent_3 → Agent_5: 30.0 units (30.0% of resources)
+  Agent_4 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_5 → Agent_3: 40.0 units (40.0% of resources)
+  Agent_6 → Agent_2: 30.0 units (30.0% of resources)
+
+Current balances:
+  Agent_1: 240.0 units
+  Agent_2: 230.0 units
+  Agent_3: 250.0 units
+  Agent_4: 240.0 units
+  Agent_5: 220.0 units
+  Agent_6: 230.0 units
+********************************************************************************
+
+================================================================================
+ROUND 2
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_2 ↔ Agent_6
+  Agent_3 ↔ Agent_5
+  Agent_1 ↔ Agent_4
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_4):
+  In this round, I have accumulated 240 units, and I once again have a fresh allocation of 100 units to decide how to split between myself and Agent_4. 
+
+**Reasoning:**
+
+1. **Observation of Agent_4's Be...
+
+Agent_2 reasoning (paired with Agent_6):
+  In Round 2, I have accumulated 230 units, and I am again paired with Agent_6. This round's allocation remains at 100 units. 
+
+From Round 1, I noticed that Agent_6 donated 30% of their resources to Age...
+
+Agent_3 reasoning (paired with Agent_5):
+  In Round 2, I have a clearer understanding of Agent_5's behavior based on their actions in Round 1. They donated 40% of their resources to Agent_3, which indicates a willingness to share resources wit...
+
+Agent_4 reasoning (paired with Agent_1):
+  In Round 2, I have a better understanding of Agent_1's tendencies based on their behavior in the previous round. Agent_1 donated 40% of their resources to Agent_4, which indicates a willingness to coo...
+
+Agent_5 reasoning (paired with Agent_3):
+  In Round 2, I have accumulated a total of 220 units, and I need to decide how much of this round's 100-unit allocation to donate to Agent_3. The observable history shows that in Round 1, Agent_3 donat...
+
+Agent_6 reasoning (paired with Agent_2):
+  In Round 2, I have 230 units accumulated, and this round's allocation is again 100 units. I need to decide how much to donate to Agent_2 based on their previous behavior and my own strategy.
+
+### Obse...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 40}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 40}
+Agent_1 donates 50.0 to Agent_4
+Agent_2 donates 50.0 to Agent_6
+Agent_3 donates 40.0 to Agent_5
+Agent_4 donates 50.0 to Agent_1
+Agent_5 donates 50.0 to Agent_3
+Agent_6 donates 40.0 to Agent_2
+
+********************************************************************************
+ROUND 2 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_5: 40.0 units (40.0% of resources)
+  Agent_4 → Agent_1: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_3: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_2: 40.0 units (40.0% of resources)
+
+Current balances:
+  Agent_1: 390.0 units
+  Agent_2: 360.0 units
+  Agent_3: 410.0 units
+  Agent_4: 390.0 units
+  Agent_5: 350.0 units
+  Agent_6: 390.0 units
+********************************************************************************
+
+================================================================================
+ROUND 3
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_5 ↔ Agent_1
+  Agent_3 ↔ Agent_6
+  Agent_2 ↔ Agent_4
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_5):
+  This round, I have accumulated 390 units, with a fresh allocation of 100 units to split between myself and Agent_5. 
+
+**Reasoning:**
+
+1. **Observation of Agent_5's Behavior**: In their previous rounds...
+
+Agent_2 reasoning (paired with Agent_4):
+  In Round 3, I have a total of 360 units and an allocation of 100 units to decide how to split with my new partner, Agent_4. 
+
+From the observable history, I see that in Round 1, Agent_4 donated 40% of...
+
+Agent_3 reasoning (paired with Agent_6):
+  In Round 3, I have accumulated 410 units, and I am now paired with Agent_6. Analyzing Agent_6's donation behavior from the previous rounds provides important insights for my decision-making.
+
+1. **His...
+
+Agent_4 reasoning (paired with Agent_2):
+  In Round 3, I am paired with Agent_2, and I have some useful information about their past donation behavior from the first two rounds. 
+
+1. **Observations on Agent_2**: In Round 2, Agent_2 donated 50%...
+
+Agent_5 reasoning (paired with Agent_1):
+  In Round 3, I have accumulated a total of 350 units, and I need to decide how to allocate my new 100-unit round allocation to Agent_1. Observing Agent_1's behavior in the previous rounds helps me gaug...
+
+Agent_6 reasoning (paired with Agent_3):
+  In Round 3, I have 390 units accumulated, and this round's allocation is 100 units. My partner, Agent_3, has shown a pattern of cooperation in their previous rounds, which informs my decision-making.
+...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 60}
+
+Agent_3 donation response: {"donation": 40}
+
+Agent_4 donation response: {"donation": 60}
+
+Agent_5 donation response: {"donation": 60}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 50.0 to Agent_5
+Agent_2 donates 60.0 to Agent_4
+Agent_3 donates 40.0 to Agent_6
+Agent_4 donates 60.0 to Agent_2
+Agent_5 donates 60.0 to Agent_1
+Agent_6 donates 50.0 to Agent_3
+
+********************************************************************************
+ROUND 3 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_5: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_4: 60.0 units (60.0% of resources)
+  Agent_3 → Agent_6: 40.0 units (40.0% of resources)
+  Agent_4 → Agent_2: 60.0 units (60.0% of resources)
+  Agent_5 → Agent_1: 60.0 units (60.0% of resources)
+  Agent_6 → Agent_3: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 560.0 units
+  Agent_2: 520.0 units
+  Agent_3: 570.0 units
+  Agent_4: 550.0 units
+  Agent_5: 490.0 units
+  Agent_6: 520.0 units
+********************************************************************************
+
+================================================================================
+ROUND 4
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_5
+  Agent_2 ↔ Agent_3
+  Agent_6 ↔ Agent_1
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_6):
+  In this round, I have accumulated 560 units, with a fresh allocation of 100 units to allocate between myself and Agent_6.
+
+**Reasoning:**
+
+1. **Observation of Agent_6's Behavior**: In Round 3, Agent_6...
+
+Agent_2 reasoning (paired with Agent_3):
+  In Round 4, I have accumulated a total of 520 units, and I have a fresh allocation of 100 units to decide how to split with my new partner, Agent_3. 
+
+Looking at Agent_3's observable history, in Round...
+
+Agent_3 reasoning (paired with Agent_2):
+  In Round 4, I have a total of 570 units and am paired with Agent_2. Analyzing Agent_2's past donation behavior is crucial in determining my strategy for this round.
+
+1. **Generosity and Reciprocity**:...
+
+Agent_4 reasoning (paired with Agent_5):
+  In Round 4, I am paired with Agent_5, and I have some insights into their past donation behavior from the previous rounds, which can help inform my decision.
+
+1. **Observations on Agent_5**: In Round ...
+
+Agent_5 reasoning (paired with Agent_4):
+  In Round 4, I have a total of 490 units, and I need to allocate my new 100-unit round allocation to Agent_4. Observing Agent_4's behavior in previous rounds will help me decide how much to donate.
+
+1....
+
+Agent_6 reasoning (paired with Agent_1):
+  In Round 4, I have 520 units accumulated, and this round's allocation is 100 units. My partner for this round, Agent_1, has a history of donating substantial amounts to others in previous rounds, whic...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 70}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 70}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 50.0 to Agent_6
+Agent_2 donates 70.0 to Agent_3
+Agent_3 donates 50.0 to Agent_2
+Agent_4 donates 50.0 to Agent_5
+Agent_5 donates 70.0 to Agent_4
+Agent_6 donates 50.0 to Agent_1
+
+********************************************************************************
+ROUND 4 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_3: 70.0 units (70.0% of resources)
+  Agent_3 → Agent_2: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_5: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_4: 70.0 units (70.0% of resources)
+  Agent_6 → Agent_1: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 710.0 units
+  Agent_2: 650.0 units
+  Agent_3: 760.0 units
+  Agent_4: 740.0 units
+  Agent_5: 620.0 units
+  Agent_6: 670.0 units
+********************************************************************************
+
+================================================================================
+ROUND 5
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_1
+  Agent_5 ↔ Agent_3
+  Agent_2 ↔ Agent_6
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_4):
+  In this round, I have accumulated 710 units, with a fresh allocation of 100 units to decide how to split between myself and Agent_4.
+
+**Reasoning:**
+
+1. **Observation of Agent_4's Behavior**: In Round...
+
+Agent_2 reasoning (paired with Agent_6):
+  In Round 5, I have a total of 650 units and an allocation of 100 units to decide how to split with my partner, Agent_6.
+
+Reviewing Agent_6's observable history, they donated 50% of their resources to ...
+
+Agent_3 reasoning (paired with Agent_5):
+  In Round 5, I have amassed 760 units and am now paired with Agent_5. Observing Agent_5's previous donation behavior is essential for making a strategic decision this round.
+
+1. **Donation Behavior**: ...
+
+Agent_4 reasoning (paired with Agent_1):
+  In Round 5, I am paired with Agent_1, and I have some relevant information about their past donation behavior that will guide my decision.
+
+1. **Observations on Agent_1**: In Round 4, Agent_1 donated ...
+
+Agent_5 reasoning (paired with Agent_3):
+  In Round 5, I have a total of 620 units and need to allocate my new round allocation of 100 units to Agent_3. Observing Agent_3's past behaviors will guide my donation decision.
+
+1. **Analyzing Agent_...
+
+Agent_6 reasoning (paired with Agent_2):
+  In Round 5, I have 670 units accumulated, and this round's allocation is 100 units. My partner for this round, Agent_2, has a documented history of making substantial donations to other agents, which ...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 60}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 50.0 to Agent_4
+Agent_2 donates 50.0 to Agent_6
+Agent_3 donates 50.0 to Agent_5
+Agent_4 donates 60.0 to Agent_1
+Agent_5 donates 50.0 to Agent_3
+Agent_6 donates 50.0 to Agent_2
+
+********************************************************************************
+ROUND 5 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_5: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_1: 60.0 units (60.0% of resources)
+  Agent_5 → Agent_3: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_2: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 880.0 units
+  Agent_2: 800.0 units
+  Agent_3: 910.0 units
+  Agent_4: 880.0 units
+  Agent_5: 770.0 units
+  Agent_6: 820.0 units
+********************************************************************************
+
+================================================================================
+ROUND 6
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_5 ↔ Agent_4
+  Agent_3 ↔ Agent_2
+  Agent_6 ↔ Agent_1
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_6):
+  In this round, I have accumulated 880 units, with a fresh allocation of 100 units to decide how to split between myself and Agent_6.
+
+**Reasoning:**
+
+1. **Observation of Agent_6's Behavior**: In Round...
+
+Agent_2 reasoning (paired with Agent_3):
+  In Round 6, I have accumulated a total of 800 units, and I have a fresh allocation of 100 units to decide how to split with Agent_3.
+
+Looking at Agent_3's observable history, in Round 5, they donated ...
+
+Agent_3 reasoning (paired with Agent_2):
+  In Round 6, I have accumulated 910 units and am again paired with Agent_2. Observing Agent_2's past behavior will guide my donation decision this round.
+
+1. **Donation Behavior**: In Round 5, Agent_2 ...
+
+Agent_4 reasoning (paired with Agent_5):
+  In Round 6, I am paired with Agent_5 once again, and I have valuable insights into their past donation behavior that will guide my decision.
+
+1. **Observations on Agent_5**: In Round 5, Agent_5 donate...
+
+Agent_5 reasoning (paired with Agent_4):
+  In Round 6, I have a total of 770 units, and I need to allocate my new round allocation of 100 units to Agent_4. Examining Agent_4's past donations will help inform my decision.
+
+1. **Analyzing Agent_...
+
+Agent_6 reasoning (paired with Agent_1):
+  In Round 6, I have accumulated a total of 820 units and have a fresh allocation of 100 units to distribute between myself and my partner, Agent_1. 
+
+### Observations from Agent_1's Past Behavior:
+1. *...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 70}
+
+Agent_3 donation response: {"donation": 30}
+
+Agent_4 donation response: {"donation": 70}
+
+Agent_5 donation response: {"donation": 60}
+
+Agent_6 donation response: {"donation": 60}
+Agent_1 donates 50.0 to Agent_6
+Agent_2 donates 70.0 to Agent_3
+Agent_3 donates 30.0 to Agent_2
+Agent_4 donates 70.0 to Agent_5
+Agent_5 donates 60.0 to Agent_4
+Agent_6 donates 60.0 to Agent_1
+
+********************************************************************************
+ROUND 6 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_3: 70.0 units (70.0% of resources)
+  Agent_3 → Agent_2: 30.0 units (30.0% of resources)
+  Agent_4 → Agent_5: 70.0 units (70.0% of resources)
+  Agent_5 → Agent_4: 60.0 units (60.0% of resources)
+  Agent_6 → Agent_1: 60.0 units (60.0% of resources)
+
+Current balances:
+  Agent_1: 1050.0 units
+  Agent_2: 890.0 units
+  Agent_3: 1120.0 units
+  Agent_4: 1030.0 units
+  Agent_5: 950.0 units
+  Agent_6: 960.0 units
+********************************************************************************
+
+================================================================================
+ROUND 7
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_1 ↔ Agent_2
+  Agent_5 ↔ Agent_6
+  Agent_3 ↔ Agent_4
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_2):
+  In this round, I have accumulated 1050 units, with a fresh allocation of 100 units to decide how to split between myself and Agent_2.
+
+**Reasoning:**
+
+1. **Observation of Agent_2's Behavior**: In Roun...
+
+Agent_2 reasoning (paired with Agent_1):
+  In Round 7, I have accumulated a total of 890 units and have a fresh allocation of 100 units to decide how to split with Agent_1.
+
+Examining Agent_1's observable history, I see that in Round 6, they d...
+
+Agent_3 reasoning (paired with Agent_4):
+  In Round 7, I have a total of 1120 units and I am paired with Agent_4. Analyzing Agent_4's past donation behavior will be crucial for my decision this round.
+
+1. **Donation Behavior**: In Round 6, Age...
+
+Agent_4 reasoning (paired with Agent_3):
+  In Round 7, I am paired with Agent_3, and I need to analyze their past donation behavior to decide on my donation amount effectively.
+
+1. **Observations on Agent_3**: In Round 6, Agent_3 donated 30% o...
+
+Agent_5 reasoning (paired with Agent_6):
+  In Round 7, I have a total of 950 units and need to decide how to allocate my new round allocation of 100 units to Agent_6. Evaluating Agent_6's previous donations will help shape my decision.
+
+1. **A...
+
+Agent_6 reasoning (paired with Agent_5):
+  In Round 7, I have a total of 960 units and a new allocation of 100 units to distribute with Agent_5 as my partner.
+
+### Observations from Agent_5's Past Behavior:
+1. **Donation History**:
+   - In Rou...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 60}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 40.0 to Agent_2
+Agent_2 donates 60.0 to Agent_1
+Agent_3 donates 50.0 to Agent_4
+Agent_4 donates 50.0 to Agent_3
+Agent_5 donates 50.0 to Agent_6
+Agent_6 donates 50.0 to Agent_5
+
+********************************************************************************
+ROUND 7 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_2: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_1: 60.0 units (60.0% of resources)
+  Agent_3 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_3: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_5: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 1230.0 units
+  Agent_2: 1010.0 units
+  Agent_3: 1270.0 units
+  Agent_4: 1180.0 units
+  Agent_5: 1100.0 units
+  Agent_6: 1110.0 units
+********************************************************************************
+
+================================================================================
+ROUND 8
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_2
+  Agent_5 ↔ Agent_6
+  Agent_1 ↔ Agent_3
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_3):
+  In this round, I have accumulated 1230 units, with a fresh allocation of 100 units to decide how to split between myself and Agent_3.
+
+**Reasoning:**
+
+1. **Observation of Agent_3's Behavior**: In Roun...
+
+Agent_2 reasoning (paired with Agent_4):
+  In Round 8, I have accumulated a total of 1010 units and a fresh allocation of 100 units to split with Agent_4.
+
+Looking at Agent_4's observable history, they have shown a pattern of donating signific...
+
+Agent_3 reasoning (paired with Agent_1):
+  In Round 8, with a total of 1270 units and paired with Agent_1, I need to carefully analyze their past behavior before deciding on my donation.
+
+1. **Donation Behavior**: In Round 7, Agent_1 donated 4...
+
+Agent_4 reasoning (paired with Agent_2):
+  In Round 8, I am paired with Agent_2, and I need to analyze their past behavior to make an informed decision about my donation.
+
+1. **Observations on Agent_2**: In Round 7, Agent_2 donated 60% of thei...
+
+Agent_5 reasoning (paired with Agent_6):
+  In Round 8, I have a total of 1100 units and a new round allocation of 100 units to allocate to Agent_6. Analyzing Agent_6's previous donation behavior will inform my decision-making process.
+
+1. **An...
+
+Agent_6 reasoning (paired with Agent_5):
+  In Round 8, I have accumulated 1110 units and have a fresh allocation of 100 units to distribute with Agent_5.
+
+### Observations from Agent_5's Past Behavior:
+1. **Donation History**:
+   - In Round 7,...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 70}
+
+Agent_3 donation response: {"donation": 40}
+
+Agent_4 donation response: {"donation": 70}
+
+Agent_5 donation response: {"donation": 60}
+
+Agent_6 donation response: {"donation": 60}
+Agent_1 donates 40.0 to Agent_3
+Agent_2 donates 70.0 to Agent_4
+Agent_3 donates 40.0 to Agent_1
+Agent_4 donates 70.0 to Agent_2
+Agent_5 donates 60.0 to Agent_6
+Agent_6 donates 60.0 to Agent_5
+
+********************************************************************************
+ROUND 8 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_3: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_4: 70.0 units (70.0% of resources)
+  Agent_3 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_4 → Agent_2: 70.0 units (70.0% of resources)
+  Agent_5 → Agent_6: 60.0 units (60.0% of resources)
+  Agent_6 → Agent_5: 60.0 units (60.0% of resources)
+
+Current balances:
+  Agent_1: 1370.0 units
+  Agent_2: 1180.0 units
+  Agent_3: 1410.0 units
+  Agent_4: 1350.0 units
+  Agent_5: 1260.0 units
+  Agent_6: 1270.0 units
+********************************************************************************
+
+================================================================================
+ROUND 9
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_5 ↔ Agent_4
+  Agent_6 ↔ Agent_3
+  Agent_1 ↔ Agent_2
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_2):
+  In this round, I have accumulated 1370 units, with a fresh allocation of 100 units to decide how to split between myself and Agent_2.
+
+**Reasoning:**
+
+1. **Observation of Agent_2's Behavior**: In Roun...
+
+Agent_2 reasoning (paired with Agent_1):
+  In Round 9, I have accumulated 1180 units and a fresh allocation of 100 units to divide between myself and Agent_1.
+
+Observing Agent_1’s past behavior, I note that in Round 8, they donated 40% of thei...
+
+Agent_3 reasoning (paired with Agent_6):
+  In Round 9, I have a total of 1410 units and am paired with Agent_6. Assessing Agent_6's past behavior is essential for making an informed decision.
+
+1. **Donation Behavior**: In Round 8, Agent_6 dona...
+
+Agent_4 reasoning (paired with Agent_5):
+  In Round 9, I am paired with Agent_5, and I need to analyze their past donation behavior to inform my decision.
+
+1. **Observations on Agent_5**: In Round 8, Agent_5 donated 60% of their resources to A...
+
+Agent_5 reasoning (paired with Agent_4):
+  In Round 9, I have a total of 1260 units and a new allocation of 100 units to distribute to Agent_4. Examining Agent_4's previous donation history will help me make a strategic decision.
+
+1. **Analyzi...
+
+Agent_6 reasoning (paired with Agent_3):
+  In Round 9, I have a total of 1270 units and an allocation of 100 units to decide how to split with Agent_3.
+
+### Observations from Agent_3's Past Behavior:
+1. **Donation History**:
+   - In Round 8, A...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 60}
+
+Agent_4 donation response: {"donation": 60}
+
+Agent_5 donation response: {"donation": 70}
+
+Agent_6 donation response: {"donation": 40}
+Agent_1 donates 40.0 to Agent_2
+Agent_2 donates 50.0 to Agent_1
+Agent_3 donates 60.0 to Agent_6
+Agent_4 donates 60.0 to Agent_5
+Agent_5 donates 70.0 to Agent_4
+Agent_6 donates 40.0 to Agent_3
+
+********************************************************************************
+ROUND 9 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_2: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_1: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_6: 60.0 units (60.0% of resources)
+  Agent_4 → Agent_5: 60.0 units (60.0% of resources)
+  Agent_5 → Agent_4: 70.0 units (70.0% of resources)
+  Agent_6 → Agent_3: 40.0 units (40.0% of resources)
+
+Current balances:
+  Agent_1: 1530.0 units
+  Agent_2: 1310.0 units
+  Agent_3: 1530.0 units
+  Agent_4: 1530.0 units
+  Agent_5: 1410.0 units
+  Agent_6: 1450.0 units
+********************************************************************************
+
+================================================================================
+ROUND 10
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_1
+  Agent_6 ↔ Agent_2
+  Agent_5 ↔ Agent_3
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_4):
+  In this round, I have accumulated 1530 units with a fresh allocation of 100 units to consider for donation to Agent_4.
+
+**Reasoning:**
+
+1. **Observation of Agent_4's Behavior**: In Round 9, Agent_4 do...
+
+Agent_2 reasoning (paired with Agent_6):
+  In Round 10, I have 1310 units accumulated and receive a fresh allocation of 100 units to split with Agent_6.
+
+Looking at Agent_6's observable history, I see that in Round 9, they donated 40% of their...
+
+Agent_3 reasoning (paired with Agent_5):
+  In Round 10, I have a total of 1530 units and am paired with Agent_5. To make an informed decision, I need to analyze Agent_5's past donation behavior.
+
+1. **Donation Behavior**: In Round 9, Agent_5 d...
+
+Agent_4 reasoning (paired with Agent_1):
+  In Round 10, I am paired with Agent_1, and it’s important to analyze their past behavior to make an informed decision.
+
+1. **Observations on Agent_1**: In Round 9, Agent_1 donated 40% of their resourc...
+
+Agent_5 reasoning (paired with Agent_3):
+  In Round 10, I have a total of 1410 units and a new allocation of 100 units to distribute to Agent_3. Analyzing Agent_3's previous donation behavior will help me make an informed decision.
+
+1. **Analy...
+
+Agent_6 reasoning (paired with Agent_2):
+  In Round 10, I have a total of 1450 units and a fresh allocation of 100 units to allocate between myself and Agent_2.
+
+### Observations from Agent_2's Past Behavior:
+1. **Donation History**:
+   - In R...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 60}
+
+Agent_3 donation response: {"donation": 70}
+
+Agent_4 donation response: {"donation": 40}
+
+Agent_5 donation response: {"donation": 70}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 40.0 to Agent_4
+Agent_2 donates 60.0 to Agent_6
+Agent_3 donates 70.0 to Agent_5
+Agent_4 donates 40.0 to Agent_1
+Agent_5 donates 70.0 to Agent_3
+Agent_6 donates 50.0 to Agent_2
+
+********************************************************************************
+ROUND 10 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_4: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_6: 60.0 units (60.0% of resources)
+  Agent_3 → Agent_5: 70.0 units (70.0% of resources)
+  Agent_4 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_5 → Agent_3: 70.0 units (70.0% of resources)
+  Agent_6 → Agent_2: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 1670.0 units
+  Agent_2: 1450.0 units
+  Agent_3: 1700.0 units
+  Agent_4: 1670.0 units
+  Agent_5: 1580.0 units
+  Agent_6: 1620.0 units
+********************************************************************************
+
+================================================================================
+ROUND 11
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_6
+  Agent_2 ↔ Agent_3
+  Agent_5 ↔ Agent_1
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_5):
+  In this round, I have accumulated 1670 units, with a fresh allocation of 100 units to consider for donation to Agent_5.
+
+**Reasoning:**
+
+1. **Observation of Agent_5's Behavior**: In Round 10, Agent_5 ...
+
+Agent_2 reasoning (paired with Agent_3):
+  In Round 11, I have accumulated 1450 units and a fresh allocation of 100 units to distribute between myself and Agent_3.
+
+Looking at Agent_3's observable history, I see that in Round 10, they donated ...
+
+Agent_3 reasoning (paired with Agent_2):
+  In Round 11, I have a total of 1700 units and am paired with Agent_2. To make my donation decision, I need to carefully analyze Agent_2's donation behavior in previous rounds.
+
+1. **Donation Behavior*...
+
+Agent_4 reasoning (paired with Agent_6):
+  In Round 11, I am paired with Agent_6, and it is crucial to analyze their donation behavior from previous rounds to inform my decision.
+
+1. **Observations on Agent_6**: In Round 10, Agent_6 donated 50...
+
+Agent_5 reasoning (paired with Agent_1):
+  In Round 11, I have a total of 1580 units and a new allocation of 100 units to distribute to Agent_1. Analyzing Agent_1's previous donation behavior will help me make a strategic decision.
+
+1. **Analy...
+
+Agent_6 reasoning (paired with Agent_4):
+  In Round 11, I have a total of 1620 units and am allocated 100 units to distribute between myself and Agent_4.
+
+### Observations from Agent_4's Past Behavior:
+1. **Donation History**:
+   - In Round 10...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 70}
+
+Agent_3 donation response: {"donation": 60}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 40}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 40.0 to Agent_5
+Agent_2 donates 70.0 to Agent_3
+Agent_3 donates 60.0 to Agent_2
+Agent_4 donates 50.0 to Agent_6
+Agent_5 donates 40.0 to Agent_1
+Agent_6 donates 50.0 to Agent_4
+
+********************************************************************************
+ROUND 11 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_5: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_3: 70.0 units (70.0% of resources)
+  Agent_3 → Agent_2: 60.0 units (60.0% of resources)
+  Agent_4 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_6 → Agent_4: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 1810.0 units
+  Agent_2: 1600.0 units
+  Agent_3: 1880.0 units
+  Agent_4: 1820.0 units
+  Agent_5: 1720.0 units
+  Agent_6: 1770.0 units
+********************************************************************************
+
+================================================================================
+ROUND 12
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_5
+  Agent_3 ↔ Agent_2
+  Agent_6 ↔ Agent_1
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_6):
+  In this round, I have accumulated 1810 units, and I have a fresh allocation of 100 units to consider for donation to Agent_6.
+
+**Reasoning:**
+
+1. **Observation of Agent_6's Behavior**: In Round 11, Ag...
+
+Agent_2 reasoning (paired with Agent_3):
+  In Round 12, I have accumulated 1600 units and am presented with a fresh allocation of 100 units to distribute between myself and Agent_3.
+
+Reviewing Agent_3's observable history, I see that they dona...
+
+Agent_3 reasoning (paired with Agent_2):
+  In Round 12, I have a total of 1880 units and am paired again with Agent_2. Analyzing Agent_2’s past donation behavior gives me insights into how to approach this round:
+
+1. **Donation Behavior**: In ...
+
+Agent_4 reasoning (paired with Agent_5):
+  In Round 12, I am partnered with Agent_5, and I need to analyze their past donation behavior to strategize my decision.
+
+1. **Observations on Agent_5**: In Round 11, Agent_5 donated 40% of their resou...
+
+Agent_5 reasoning (paired with Agent_4):
+  In Round 12, I have accumulated 1720 units with a new allocation of 100 units to distribute to Agent_4. Analyzing Agent_4's previous donation behavior will help me make a strategic decision.
+
+1. **Ana...
+
+Agent_6 reasoning (paired with Agent_1):
+  In Round 12, I have a total of 1770 units and a new allocation of 100 units to distribute between myself and Agent_1.
+
+### Observations from Agent_1's Past Behavior:
+1. **Donation History**:
+   - In R...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 80}
+
+Agent_3 donation response: {"donation": 70}
+
+Agent_4 donation response: {"donation": 60}
+
+Agent_5 donation response: {"donation": 60}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 40.0 to Agent_6
+Agent_2 donates 80.0 to Agent_3
+Agent_3 donates 70.0 to Agent_2
+Agent_4 donates 60.0 to Agent_5
+Agent_5 donates 60.0 to Agent_4
+Agent_6 donates 50.0 to Agent_1
+
+********************************************************************************
+ROUND 12 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_6: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_3: 80.0 units (80.0% of resources)
+  Agent_3 → Agent_2: 70.0 units (70.0% of resources)
+  Agent_4 → Agent_5: 60.0 units (60.0% of resources)
+  Agent_5 → Agent_4: 60.0 units (60.0% of resources)
+  Agent_6 → Agent_1: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 1970.0 units
+  Agent_2: 1760.0 units
+  Agent_3: 2070.0 units
+  Agent_4: 1980.0 units
+  Agent_5: 1880.0 units
+  Agent_6: 1900.0 units
+********************************************************************************
+
+================================================================================
+ROUND 13
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_3 ↔ Agent_5
+  Agent_4 ↔ Agent_2
+  Agent_1 ↔ Agent_6
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_6):
+  In this round, I have accumulated 1970 units, with a fresh allocation of 100 units to consider for donation to Agent_6.
+
+**Reasoning:**
+
+1. **Observation of Agent_6's Behavior**: In Round 12, Agent_6 ...
+
+Agent_2 reasoning (paired with Agent_4):
+  In Round 13, I have accumulated 1760 units and a fresh allocation of 100 units to distribute between myself and Agent_4.
+
+Looking at Agent_4's observable history, I see that they donated 60% of their ...
+
+Agent_3 reasoning (paired with Agent_5):
+  In Round 13, I have a total of 2070 units and am paired with Agent_5. Analyzing Agent_5's past donation behavior provides valuable insights for my decision:
+
+1. **Donation Behavior**: In Round 12, Age...
+
+Agent_4 reasoning (paired with Agent_2):
+  In Round 13, I am paired with Agent_2, and it's important to analyze their past donation behavior to inform my decision.
+
+1. **Observations on Agent_2**: In Round 12, Agent_2 donated a substantial 80%...
+
+Agent_5 reasoning (paired with Agent_3):
+  In Round 13, I currently have 1880 units and a new allocation of 100 units to distribute to Agent_3. To determine an effective donation amount, I will analyze Agent_3's past behavior.
+
+1. **Analyzing ...
+
+Agent_6 reasoning (paired with Agent_1):
+  In Round 13, I have a total of 1900 units and am paired with Agent_1 again, with an allocation of 100 units to distribute.
+
+### Observations from Agent_1's Past Behavior:
+1. **Donation History**:
+   -...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 70}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 70}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 40.0 to Agent_6
+Agent_2 donates 70.0 to Agent_4
+Agent_3 donates 50.0 to Agent_5
+Agent_4 donates 50.0 to Agent_2
+Agent_5 donates 70.0 to Agent_3
+Agent_6 donates 50.0 to Agent_1
+
+********************************************************************************
+ROUND 13 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_6: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_4: 70.0 units (70.0% of resources)
+  Agent_3 → Agent_5: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_2: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_3: 70.0 units (70.0% of resources)
+  Agent_6 → Agent_1: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 2130.0 units
+  Agent_2: 1890.0 units
+  Agent_3: 2260.0 units
+  Agent_4: 2170.0 units
+  Agent_5: 2010.0 units
+  Agent_6: 2030.0 units
+********************************************************************************
+
+================================================================================
+ROUND 14
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_2 ↔ Agent_4
+  Agent_1 ↔ Agent_3
+  Agent_6 ↔ Agent_5
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_3):
+  In this round, I have accumulated 2130 units, with a fresh allocation of 100 units to consider for donation to Agent_3.
+
+**Reasoning:**
+
+1. **Observation of Agent_3's Behavior**: Agent_3 has shown a p...
+
+Agent_2 reasoning (paired with Agent_4):
+  In Round 14, I have accumulated 1890 units and a fresh allocation of 100 units to distribute between myself and Agent_4.
+
+Analyzing Agent_4's recent behavior, I notice that in Round 13, they donated 5...
+
+Agent_3 reasoning (paired with Agent_1):
+  In Round 14, I have 2260 units and am paired with Agent_1. To make an informed decision about how much to donate, I will analyze Agent_1's previous donation behavior:
+
+1. **Donation Behavior**: In Rou...
+
+Agent_4 reasoning (paired with Agent_2):
+  In Round 14, I am once again paired with Agent_2. Analyzing their past behavior will guide my decision on how much to donate this round. 
+
+1. **Observations on Agent_2**: In Round 13, Agent_2 donated ...
+
+Agent_5 reasoning (paired with Agent_6):
+  In Round 14, I have 2010 units and a new allocation of 100 units to distribute to Agent_6. To make an informed decision, I will analyze Agent_6's previous donation behavior.
+
+1. **Analyzing Agent_6's ...
+
+Agent_6 reasoning (paired with Agent_5):
+  In Round 14, I have a total of 2030 units and am paired with Agent_5, with an allocation of 100 units to distribute.
+
+### Observations from Agent_5's Past Behavior:
+1. **Donation History**:
+   - In Ro...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 60}
+
+Agent_3 donation response: {"donation": 40}
+
+Agent_4 donation response: {"donation": 40}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 40}
+Agent_1 donates 40.0 to Agent_3
+Agent_2 donates 60.0 to Agent_4
+Agent_3 donates 40.0 to Agent_1
+Agent_4 donates 40.0 to Agent_2
+Agent_5 donates 50.0 to Agent_6
+Agent_6 donates 40.0 to Agent_5
+
+********************************************************************************
+ROUND 14 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_3: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_4: 60.0 units (60.0% of resources)
+  Agent_3 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_4 → Agent_2: 40.0 units (40.0% of resources)
+  Agent_5 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_5: 40.0 units (40.0% of resources)
+
+Current balances:
+  Agent_1: 2270.0 units
+  Agent_2: 2010.0 units
+  Agent_3: 2400.0 units
+  Agent_4: 2350.0 units
+  Agent_5: 2140.0 units
+  Agent_6: 2190.0 units
+********************************************************************************
+
+================================================================================
+ROUND 15
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_3 ↔ Agent_5
+  Agent_2 ↔ Agent_6
+  Agent_1 ↔ Agent_4
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_4):
+  In this round, I have a total of 2270 units and a fresh allocation of 100 units to consider for donation to Agent_4.
+
+**Reasoning:**
+
+1. **Observation of Agent_4's Behavior**: Agent_4 has demonstrated...
+
+Agent_2 reasoning (paired with Agent_6):
+  In Round 15, I have accumulated 2010 units and a fresh allocation of 100 units to distribute between myself and Agent_6.
+
+Looking at Agent_6's recent donation behavior, I see that in Round 14, they do...
+
+Agent_3 reasoning (paired with Agent_5):
+  In Round 15, I have 2400 units and am paired with Agent_5 again. Reviewing Agent_5's past donation behavior provides useful context for my decision:
+
+1. **Donation Behavior**: In Round 14, Agent_5 don...
+
+Agent_4 reasoning (paired with Agent_1):
+  In Round 15, I am paired with Agent_1. To make an informed decision about how much to donate this round, I will analyze their past donation behavior.
+
+1. **Observations on Agent_1**: In Round 14, Agen...
+
+Agent_5 reasoning (paired with Agent_3):
+  In Round 15, with a total of 2140 units and a new allocation of 100 units to distribute to Agent_3, I need to carefully consider Agent_3's recent donation behavior to make an effective decision.
+
+1. *...
+
+Agent_6 reasoning (paired with Agent_2):
+  In Round 15, I have a total of 2190 units and am paired with Agent_2, with an allocation of 100 units to distribute.
+
+### Observations from Agent_2's Past Behavior:
+1. **Donation History**:
+   - In Ro...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 60}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 40}
+
+Agent_6 donation response: {"donation": 30}
+Agent_1 donates 40.0 to Agent_4
+Agent_2 donates 50.0 to Agent_6
+Agent_3 donates 60.0 to Agent_5
+Agent_4 donates 50.0 to Agent_1
+Agent_5 donates 40.0 to Agent_3
+Agent_6 donates 30.0 to Agent_2
+
+********************************************************************************
+ROUND 15 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_4: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_5: 60.0 units (60.0% of resources)
+  Agent_4 → Agent_1: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_3: 40.0 units (40.0% of resources)
+  Agent_6 → Agent_2: 30.0 units (30.0% of resources)
+
+Current balances:
+  Agent_1: 2430.0 units
+  Agent_2: 2120.0 units
+  Agent_3: 2520.0 units
+  Agent_4: 2480.0 units
+  Agent_5: 2320.0 units
+  Agent_6: 2360.0 units
+********************************************************************************
+
+================================================================================
+ROUND 16
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_3
+  Agent_2 ↔ Agent_6
+  Agent_5 ↔ Agent_1
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_5):
+  In this round, I have a total of 2430 units and a fresh allocation of 100 units to consider for donation to Agent_5.
+
+**Reasoning:**
+
+1. **Observation of Agent_5's Behavior**: Agent_5 has shown a will...
+
+Agent_2 reasoning (paired with Agent_6):
+  In Round 16, I have accumulated 2120 units and a fresh allocation of 100 units to distribute between myself and Agent_6.
+
+Observing Agent_6's recent donation history, they donated 30% of their resourc...
+
+Agent_3 reasoning (paired with Agent_4):
+  In Round 16, I'm paired with Agent_4, and I have 2520 units. Analyzing Agent_4's past donation behavior will help me determine how much to donate in this round:
+
+1. **Donation Behavior**: In Round 15,...
+
+Agent_4 reasoning (paired with Agent_3):
+  In Round 16, I am paired with Agent_3. To make a strategic decision about my donation amount, I will carefully analyze Agent_3's past behavior.
+
+1. **Observations on Agent_3**: In Round 15, Agent_3 do...
+
+Agent_5 reasoning (paired with Agent_1):
+  In Round 16, I have 2320 units accumulated and a new allocation of 100 units to distribute to Agent_1. To make my decision, I need to analyze Agent_1’s donation behavior from the past rounds.
+
+1. **An...
+
+Agent_6 reasoning (paired with Agent_2):
+  In Round 16, I have a total of 2360 units and am paired again with Agent_2, with an allocation of 100 units to distribute.
+
+### Observations from Agent_2's Past Behavior:
+1. **Recent Donations**:
+   -...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 40}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 60}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 40}
+Agent_1 donates 40.0 to Agent_5
+Agent_2 donates 40.0 to Agent_6
+Agent_3 donates 50.0 to Agent_4
+Agent_4 donates 60.0 to Agent_3
+Agent_5 donates 50.0 to Agent_1
+Agent_6 donates 40.0 to Agent_2
+
+********************************************************************************
+ROUND 16 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_5: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_6: 40.0 units (40.0% of resources)
+  Agent_3 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_3: 60.0 units (60.0% of resources)
+  Agent_5 → Agent_1: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_2: 40.0 units (40.0% of resources)
+
+Current balances:
+  Agent_1: 2590.0 units
+  Agent_2: 2260.0 units
+  Agent_3: 2690.0 units
+  Agent_4: 2620.0 units
+  Agent_5: 2450.0 units
+  Agent_6: 2500.0 units
+********************************************************************************
+
+================================================================================
+ROUND 17
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_5 ↔ Agent_2
+  Agent_3 ↔ Agent_1
+  Agent_4 ↔ Agent_6
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_3):
+  In this round, I have a total of 2590 units and a fresh allocation of 100 units to consider for donation to Agent_3.
+
+**Reasoning:**
+
+1. **Observation of Agent_3's Behavior**: Agent_3 has shown a stro...
+
+Agent_2 reasoning (paired with Agent_5):
+  In Round 17, I have accumulated 2260 units and a fresh allocation of 100 units to distribute between myself and Agent_5.
+
+Looking at Agent_5's recent donation history, they donated 50% of their resour...
+
+Agent_3 reasoning (paired with Agent_1):
+  In Round 17, I am paired with Agent_1, and I have 2690 units. Examining Agent_1's past donation behavior is crucial in deciding how much to donate this round:
+
+1. **Donation Behavior**: In Round 16, A...
+
+Agent_4 reasoning (paired with Agent_6):
+  In Round 17, I am paired with Agent_6. To make an informed decision regarding my donation, I will analyze Agent_6's past behavior closely.
+
+1. **Observations on Agent_6**: In Round 16, Agent_6 donated...
+
+Agent_5 reasoning (paired with Agent_2):
+  In Round 17, I have 2450 units accumulated and a new allocation of 100 units to allocate to Agent_2. To make an informed decision, I need to analyze the donation behavior of Agent_2 in previous rounds...
+
+Agent_6 reasoning (paired with Agent_4):
+  In Round 17, I have a total of 2500 units and am paired with Agent_4, with an allocation of 100 units to distribute.
+
+### Observations from Agent_4's Past Behavior:
+1. **Recent Donations**:
+   - In Ro...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 40}
+
+Agent_4 donation response: {"donation": 40}
+
+Agent_5 donation response: {"donation": 60}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 40.0 to Agent_3
+Agent_2 donates 50.0 to Agent_5
+Agent_3 donates 40.0 to Agent_1
+Agent_4 donates 40.0 to Agent_6
+Agent_5 donates 60.0 to Agent_2
+Agent_6 donates 50.0 to Agent_4
+
+********************************************************************************
+ROUND 17 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_3: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_5: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_4 → Agent_6: 40.0 units (40.0% of resources)
+  Agent_5 → Agent_2: 60.0 units (60.0% of resources)
+  Agent_6 → Agent_4: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 2730.0 units
+  Agent_2: 2430.0 units
+  Agent_3: 2830.0 units
+  Agent_4: 2780.0 units
+  Agent_5: 2590.0 units
+  Agent_6: 2630.0 units
+********************************************************************************
+
+================================================================================
+ROUND 18
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_4 ↔ Agent_3
+  Agent_5 ↔ Agent_6
+  Agent_1 ↔ Agent_2
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_2):
+  In this round, I have a total of 2730 units and a fresh allocation of 100 units to consider for donation to Agent_2.
+
+**Reasoning:**
+
+1. **Observation of Agent_2's Behavior**: Agent_2 has demonstrated...
+
+Agent_2 reasoning (paired with Agent_1):
+  In Round 18, I have accumulated 2430 units and a fresh allocation of 100 units to distribute between myself and Agent_1.
+
+Analyzing Agent_1's recent donation history, they donated 40% of their resourc...
+
+Agent_3 reasoning (paired with Agent_4):
+  In Round 18, I'm paired with Agent_4, and I have 2830 units. Analyzing Agent_4's past donation behavior will help me determine how much to donate in this round:
+
+1. **Donation Behavior**: In Round 17,...
+
+Agent_4 reasoning (paired with Agent_3):
+  In Round 18, I am paired with Agent_3 again. To determine my donation amount, I will analyze Agent_3's recent behavior and the context of our previous interactions.
+
+1. **Observations on Agent_3**: In...
+
+Agent_5 reasoning (paired with Agent_6):
+  In Round 18, I have 2590 units accumulated and a new allocation of 100 units to distribute to Agent_6. To make an informed decision, I will analyze Agent_6's donation behavior from previous rounds.
+
+1...
+
+Agent_6 reasoning (paired with Agent_5):
+  In Round 18, I have a total of 2630 units and am paired with Agent_5, with an allocation of 100 units to distribute.
+
+### Observations from Agent_5's Past Behavior:
+1. **Recent Donations**:
+   - In Ro...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 40}
+
+Agent_2 donation response: {"donation": 40}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 50}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 40}
+Agent_1 donates 40.0 to Agent_2
+Agent_2 donates 40.0 to Agent_1
+Agent_3 donates 50.0 to Agent_4
+Agent_4 donates 50.0 to Agent_3
+Agent_5 donates 50.0 to Agent_6
+Agent_6 donates 40.0 to Agent_5
+
+********************************************************************************
+ROUND 18 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_2: 40.0 units (40.0% of resources)
+  Agent_2 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_3 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_3: 50.0 units (50.0% of resources)
+  Agent_5 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_5: 40.0 units (40.0% of resources)
+
+Current balances:
+  Agent_1: 2870.0 units
+  Agent_2: 2570.0 units
+  Agent_3: 2980.0 units
+  Agent_4: 2930.0 units
+  Agent_5: 2720.0 units
+  Agent_6: 2790.0 units
+********************************************************************************
+
+================================================================================
+ROUND 19
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_6 ↔ Agent_2
+  Agent_3 ↔ Agent_1
+  Agent_5 ↔ Agent_4
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_3):
+  In this round, I have a total of 2870 units and a fresh allocation of 100 units to consider for donation to Agent_3.
+
+**Reasoning:**
+
+1. **Observation of Agent_3's Behavior**: Agent_3 has shown a patt...
+
+Agent_2 reasoning (paired with Agent_6):
+  In Round 19, I have accumulated 2570 units and a fresh allocation of 100 units to split between myself and Agent_6.
+
+Examining Agent_6's recent donation behavior, they donated 40% of their resources t...
+
+Agent_3 reasoning (paired with Agent_1):
+  In Round 19, I am paired with Agent_1, and I have 2980 units. To make a well-informed decision about how much to donate, I need to analyze Agent_1's past donation behavior:
+
+1. **Donation History**: I...
+
+Agent_4 reasoning (paired with Agent_5):
+  In Round 19, I am paired with Agent_5. To decide on my donation amount, I'll analyze Agent_5's past behaviors and weigh the potential benefits and risks associated with my decision.
+
+1. **Observations...
+
+Agent_5 reasoning (paired with Agent_4):
+  In Round 19, I have 2720 units accumulated and a new allocation of 100 units to allocate to Agent_4. To make a thoughtful decision, I will analyze Agent_4's donation behavior from previous rounds.
+
+1....
+
+Agent_6 reasoning (paired with Agent_2):
+  In Round 19, I have a total of 2790 units and am paired with Agent_2, with an allocation of 100 units to distribute.
+
+### Observations from Agent_2's Past Behavior:
+1. **Recent Donations**:
+   - In Ro...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 40}
+
+Agent_4 donation response: {"donation": 40}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 50.0 to Agent_3
+Agent_2 donates 50.0 to Agent_6
+Agent_3 donates 40.0 to Agent_1
+Agent_4 donates 40.0 to Agent_5
+Agent_5 donates 50.0 to Agent_4
+Agent_6 donates 50.0 to Agent_2
+
+********************************************************************************
+ROUND 19 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_3: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_1: 40.0 units (40.0% of resources)
+  Agent_4 → Agent_5: 40.0 units (40.0% of resources)
+  Agent_5 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_2: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 3000.0 units
+  Agent_2: 2720.0 units
+  Agent_3: 3140.0 units
+  Agent_4: 3090.0 units
+  Agent_5: 2850.0 units
+  Agent_6: 2940.0 units
+********************************************************************************
+
+================================================================================
+ROUND 20
+================================================================================
+
+--- GAME PHASE ---
+
+Pairings this round:
+  Agent_6 ↔ Agent_1
+  Agent_3 ↔ Agent_4
+  Agent_5 ↔ Agent_2
+
+Phase 1: Collecting reasoning from all agents...
+
+Agent_1 reasoning (paired with Agent_6):
+  In this round, I have a total of 3000 units and a fresh allocation of 100 units to consider for donation to Agent_6.
+
+**Reasoning:**
+
+1. **Observation of Agent_6's Behavior**: Agent_6 has shown a cons...
+
+Agent_2 reasoning (paired with Agent_5):
+  In Round 20, I have accumulated 2720 units and a fresh allocation of 100 units to distribute between myself and Agent_5.
+
+Looking at Agent_5's recent donation history, they donated 50% of their resour...
+
+Agent_3 reasoning (paired with Agent_4):
+  In Round 20, I'm paired with Agent_4 again, and I have a total of 3140 units. It’s essential to assess Agent_4's past donation behavior to make an informed decision on my contribution this round:
+
+1. ...
+
+Agent_4 reasoning (paired with Agent_3):
+  In Round 20, I am once again paired with Agent_3. To determine the optimal donation amount, I will carefully consider Agent_3's past behaviors and the dynamics of our interactions.
+
+1. **Observations ...
+
+Agent_5 reasoning (paired with Agent_2):
+  In Round 20, I have 2850 units accumulated and a new allocation of 100 units to distribute to Agent_2. To make a considered decision, I will analyze Agent_2's donation behavior from previous rounds.
+
+...
+
+Agent_6 reasoning (paired with Agent_1):
+  In Round 20, I have a total of 2940 units and am paired with Agent_1, with an allocation of 100 units to distribute.
+
+### Observations from Agent_1's Past Behavior:
+1. **Recent Donations**:
+   - In Ro...
+
+Phase 2: Collecting donation amounts from all agents...
+
+Agent_1 donation response: {"donation": 50}
+
+Agent_2 donation response: {"donation": 50}
+
+Agent_3 donation response: {"donation": 50}
+
+Agent_4 donation response: {"donation": 60}
+
+Agent_5 donation response: {"donation": 50}
+
+Agent_6 donation response: {"donation": 50}
+Agent_1 donates 50.0 to Agent_6
+Agent_2 donates 50.0 to Agent_5
+Agent_3 donates 50.0 to Agent_4
+Agent_4 donates 60.0 to Agent_3
+Agent_5 donates 50.0 to Agent_2
+Agent_6 donates 50.0 to Agent_1
+
+********************************************************************************
+ROUND 20 COMPLETE
+********************************************************************************
+
+Donations this round:
+  Agent_1 → Agent_6: 50.0 units (50.0% of resources)
+  Agent_2 → Agent_5: 50.0 units (50.0% of resources)
+  Agent_3 → Agent_4: 50.0 units (50.0% of resources)
+  Agent_4 → Agent_3: 60.0 units (60.0% of resources)
+  Agent_5 → Agent_2: 50.0 units (50.0% of resources)
+  Agent_6 → Agent_1: 50.0 units (50.0% of resources)
+
+Current balances:
+  Agent_1: 3150.0 units
+  Agent_2: 2870.0 units
+  Agent_3: 3310.0 units
+  Agent_4: 3230.0 units
+  Agent_5: 3000.0 units
+  Agent_6: 3090.0 units
+********************************************************************************
+
+================================================================================
+DONOR GAME SUMMARY
+================================================================================
+
+Total rounds played: 20
+Population size: 6
+Initial resources per agent: 100
+Donation multiplier: 2x
+
+Overall statistics:
+  Total resources donated: 6050.0
+  Average donation percentage: 50.4%
+
+Final balances:
+  Agent_3: 3310.0 (+3210.0 from start)
+  Agent_4: 3230.0 (+3130.0 from start)
+  Agent_1: 3150.0 (+3050.0 from start)
+  Agent_6: 3090.0 (+2990.0 from start)
+  Agent_5: 3000.0 (+2900.0 from start)
+  Agent_2: 2870.0 (+2770.0 from start)
+
+Per-agent donation behavior:
+  Agent_1: avg 43.5% donated, total 870.0 given
+  Agent_2: avg 56.5% donated, total 1130.0 given
+  Agent_3: avg 48.5% donated, total 970.0 given
+  Agent_4: avg 52.5% donated, total 1050.0 given
+  Agent_5: avg 55.0% donated, total 1100.0 given
+  Agent_6: avg 46.5% donated, total 930.0 given
+================================================================================
+================================================================================
+LLM ERROR SUMMARY
+================================================================================
+call_llm.calls: 240
+call_llm.success: 240
+--------------------------------------------------------------------------------
+
+Simulation state saved to /Users/aron/linguistic-evolution-cooperation-toolkit/experiments/donor_game_baseline/2026-02-05--10-26-24/0/result.json

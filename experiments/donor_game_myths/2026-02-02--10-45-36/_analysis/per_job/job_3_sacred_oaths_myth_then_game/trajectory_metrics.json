@@ -1,0 +1,9 @@
+{
+  "total_donations": 5550.0,
+  "avg_donation_percentage": 46.25,
+  "donation_variance": 106.77083333333333,
+  "balance_variance": 9391.666666666666,
+  "generosity_score": 46.25,
+  "final_balance_gini": 0.016620752984389364,
+  "total_rounds": 20
+}

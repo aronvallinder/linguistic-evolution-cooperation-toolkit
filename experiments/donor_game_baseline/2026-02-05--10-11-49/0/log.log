@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/experiments/run_donor_djx.py", line 17, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'

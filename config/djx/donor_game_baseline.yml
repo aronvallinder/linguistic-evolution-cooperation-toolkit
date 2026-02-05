@@ -1,0 +1,51 @@
+# =============================================================================
+# Donor Game Baseline — Game Only (no myth priming)
+# =============================================================================
+#
+# Run:
+#   djx config/djx/donor_game_baseline.yml
+#
+# This provides a baseline to compare against donor_game_myths experiment.
+# Matches parameters: 6 agents, 20 rounds, multiplier=2, neutral persona.
+
+define:
+  config_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/config.yml
+  script_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/run.sh
+  log_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/log.log
+  output_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/result.json
+
+script_template: |
+  cd <<cwd>> && python3 experiments/run_donor_djx.py <<config_file>> > <<log_file>> 2>&1
+
+config_file: <<config_file>>
+script_file: <<script_file>>
+command: bash <<script_file>>
+
+meta:
+  project_id: donor_game_baseline
+
+config:
+  model: default
+  persona_name: neutral
+  persona_system_addition: ""
+  output_path: <<output_file>>
+
+  game_params:
+    initial_resources: 100
+    donation_multiplier: 2
+    population_size: 6
+    context_depth: 2
+    context_width: 2
+
+  simulation_params:
+    num_turns: 20
+    temperature: 0.8
+    memory_capacity: 5
+    task_order:
+      - game
+    myth_visibility: all
+    myth_partner_rounds: 2
+
+  labels:
+    task_order: game_only
+    condition: baseline

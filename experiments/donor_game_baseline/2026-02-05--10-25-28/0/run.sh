@@ -1,0 +1,1 @@
+cd /Users/aron/linguistic-evolution-cooperation-toolkit && python3 experiments/run_donor_djx.py /Users/aron/linguistic-evolution-cooperation-toolkit/experiments/donor_game_baseline/2026-02-05--10-25-28/0/config.yml > /Users/aron/linguistic-evolution-cooperation-toolkit/experiments/donor_game_baseline/2026-02-05--10-25-28/0/log.log 2>&1

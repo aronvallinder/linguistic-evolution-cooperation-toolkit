@@ -1,0 +1,44 @@
+game_params:
+  context_depth: 2
+  context_width: 2
+  donation_multiplier: 2
+  initial_resources: 100
+  population_size: 6
+labels:
+  myth_theme: trickster_punishment
+  task_order: myth_then_game
+model: default
+myth_params:
+  later_rounds_template: 'Here is the myth you wrote in the previous round:
+
+    {last_myth}
+
+
+    Here is the myth the other agent wrote in the previous round:
+
+    {other_agent_myth}
+
+
+    Write your own myth. Use your previous myth as inspiration, but adapt it in your
+    own way.
+
+    Write 200 words. Format exactly:
+
+    Myth: [your story here].'
+  round_1_template: 'Write a myth about a trickster who exploits others and the price
+    that follows. Include: a clever betrayal that works once, detection (human or
+    supernatural), a punishment that is costly to carry out, and a reason the cycle
+    ends rather than escalating forever. Write 200 words.'
+  topic: cooperation and generosity
+output_path: /Users/aron/linguistic-evolution-cooperation-toolkit/experiments/donor_game_myths/2026-02-02--10-45-36/9/result.json
+persona_name: neutral
+persona_system_addition: ''
+simulation_params:
+  memory_capacity: 5
+  myth_partner_rounds: 2
+  myth_visibility: all
+  num_turns: 20
+  task_order:
+  - myth
+  - game
+  temperature: 0.8

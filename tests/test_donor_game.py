@@ -396,15 +396,16 @@ class TestTurnProcessing:
 
         balances = self.sim_data.game_data["balances"]
 
-        # Agent_1: 100 - 20 + (10 * 3) = 110
-        assert balances["Agent_1"] == 110
+        # Each agent starts with 100 and gets +100 allocation per round
+        # Agent_1: 100 + 100 - 20 + (10 * 3) = 210
+        assert balances["Agent_1"] == 210
 
-        # Agent_2: 100 - 10 + (20 * 3) = 150
-        assert balances["Agent_2"] == 150
+        # Agent_2: 100 + 100 - 10 + (20 * 3) = 250
+        assert balances["Agent_2"] == 250
 
-        # Agent_3 and Agent_4: no change
-        assert balances["Agent_3"] == 100
-        assert balances["Agent_4"] == 100
+        # Agent_3 and Agent_4: 100 + 100 (allocation, no donations)
+        assert balances["Agent_3"] == 200
+        assert balances["Agent_4"] == 200
 
     def test_process_turn_records_donation_history(self):
         agent_responses = {
@@ -439,10 +440,10 @@ class TestTurnProcessing:
         history = self.sim_data.game_data["donation_history"]
         assert len(history) == 4
 
-        # Check donation percentages are recorded
+        # Check donation percentages are recorded (percentage of round allocation, not total balance)
         agent_1_donation = next(d for d in history if d["donor_id"] == "Agent_1")
         assert agent_1_donation["amount"] == 25
-        assert agent_1_donation["percentage"] == 25.0  # 25/100 * 100
+        assert agent_1_donation["percentage"] == 25.0  # 25/100 * 100 (of initial_resources allocation)
 
     def test_simultaneous_donations(self):
         """Test that donations are applied simultaneously, not sequentially."""
@@ -479,9 +480,9 @@ class TestTurnProcessing:
 
         balances = self.sim_data.game_data["balances"]
 
-        # Both should have: 100 - 50 + (50 * 3) = 200
-        assert balances["Agent_1"] == 200
-        assert balances["Agent_2"] == 200
+        # Both should have: 100 + 100 (allocation) - 50 + (50 * 3) = 300
+        assert balances["Agent_1"] == 300
+        assert balances["Agent_2"] == 300
 
 
 class TestSystemPrompt:
@@ -559,7 +560,7 @@ class TestPromptGeneration:
         assert "Agent_2" in prompt  # partner
         assert "3" in prompt  # multiplier
 
-    def test_donation_prompt_contains_balance(self):
+    def test_donation_prompt_contains_allocation(self):
         prompt = self.game.get_donation_prompt(
             agent_id="Agent_1",
             partner_id="Agent_2",
@@ -567,5 +568,5 @@ class TestPromptGeneration:
             sim_data=self.sim_data,
         )
 
-        assert "100" in prompt  # balance
+        assert "100" in prompt  # allocation (initial_resources)
         assert "donation" in prompt.lower()

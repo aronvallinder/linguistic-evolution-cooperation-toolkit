@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/experiments/run_donor_djx.py", line 18, in <module>
+    from src.donor_simulation import run_donor_simulation
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/src/donor_simulation.py", line 1, in <module>
+    from openai import OpenAI
+ModuleNotFoundError: No module named 'openai'

@@ -4,12 +4,16 @@
 
 class MythWriter:
     """Handles myth writing functionality, separate from game logic"""
-    
-    def __init__(self, myth_topic):
+
+    def __init__(self, myth_topic, round_1_template=None, later_rounds_template=None):
         self.myth_topic = myth_topic
-    
+        self.round_1_template = round_1_template
+        self.later_rounds_template = later_rounds_template
+
     def get_myth_prompt_round_1(self, agent_id, turn, sim_data):
         """Generate prompt for myth writing"""
+        if self.round_1_template:
+            return self.round_1_template
         return f"""Write a myth about {self.myth_topic}. Write 200 words."""
 
     def get_myth_prompt_round_later(self, agent_id, turn, sim_data):

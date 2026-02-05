@@ -1,0 +1,80 @@
+[
+  {
+    "condition": "baseline (game_only)",
+    "myth_theme": "none",
+    "generosity_score": 50.416666666666664,
+    "total_donations": 6050.0,
+    "final_balance_gini": 0.02636282394995515,
+    "total_rounds": 20
+  },
+  {
+    "job_idx": 1,
+    "myth_theme": "moralizing_gods",
+    "task_order": [
+      "myth",
+      "game"
+    ],
+    "has_game": true,
+    "generosity_score": 48.92,
+    "avg_donation_pct": 48.92,
+    "total_donations": 5870.0,
+    "final_balance_gini": 0.0131,
+    "total_rounds": 20
+  },
+  {
+    "job_idx": 3,
+    "myth_theme": "sacred_oaths",
+    "task_order": [
+      "myth",
+      "game"
+    ],
+    "has_game": true,
+    "generosity_score": 46.25,
+    "avg_donation_pct": 46.25,
+    "total_donations": 5550.0,
+    "final_balance_gini": 0.0166,
+    "total_rounds": 20
+  },
+  {
+    "job_idx": 5,
+    "myth_theme": "reputation_gossip",
+    "task_order": [
+      "myth",
+      "game"
+    ],
+    "has_game": true,
+    "generosity_score": 50.5,
+    "avg_donation_pct": 50.5,
+    "total_donations": 6060.0,
+    "final_balance_gini": 0.0104,
+    "total_rounds": 20
+  },
+  {
+    "job_idx": 7,
+    "myth_theme": "hospitality_guest_right",
+    "task_order": [
+      "myth",
+      "game"
+    ],
+    "has_game": true,
+    "generosity_score": 48.46,
+    "avg_donation_pct": 48.46,
+    "total_donations": 5815.0,
+    "final_balance_gini": 0.0181,
+    "total_rounds": 20
+  },
+  {
+    "job_idx": 9,
+    "myth_theme": "trickster_punishment",
+    "task_order": [
+      "myth",
+      "game"
+    ],
+    "has_game": true,
+    "generosity_score": 47.12,
+    "avg_donation_pct": 47.12,
+    "total_donations": 5655.0,
+    "final_balance_gini": 0.0087,
+    "total_rounds": 20
+  }
+]

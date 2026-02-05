@@ -59,12 +59,12 @@ class DonorGame(Game):
 
 GAME RULES:
 - Each agent starts with {self.initial_resources} resource units
-- Each round, agents are randomly paired with another agent
-- When paired, you decide how much of your resources to donate to your partner
+- Each round, you receive a fresh allocation of {self.initial_resources} units
+- You decide how much of that round's allocation to donate to your partner, and you keep the rest
 - Donations are multiplied: if you donate X, your partner receives X × {self.donation_multiplier}
 - Your partner also decides how much to donate to you (simultaneously)
-- You can donate any amount from 0 up to your current resources
-- You cannot go into negative resources
+- You can donate any amount from 0 up to {self.initial_resources} (your round allocation)
+- Resources accumulate across rounds, but each round's donation decision is over the fixed allocation of {self.initial_resources}
 
 DECISION PROCESS:
 Each round you will be asked to:
@@ -225,7 +225,8 @@ Your goal is to navigate this social dilemma effectively."""
         prompt = f"""ROUND {turn}
 
 CURRENT SITUATION:
-- Your current resources: {balance} units
+- Your total accumulated resources: {balance} units
+- This round's allocation: {self.initial_resources} units (you decide how to split this between yourself and your partner)
 - You are paired with: {partner_id}
 - Donation multiplier: {self.donation_multiplier}x (if you donate X, your partner receives {self.donation_multiplier}X)
 - Total rounds in game: This information will be revealed as the game progresses
@@ -235,7 +236,6 @@ OBSERVABLE HISTORY OF YOUR PARTNER:
 
 Please provide your reasoning about how much you want to donate to {partner_id} this round.
 Consider:
-- Your current resource level
 - What you can observe about your partner's past behavior
 - The potential benefits and risks of different donation amounts
 
@@ -247,17 +247,17 @@ Provide your reasoning now:"""
         """
         Generate the second prompt asking for the specific donation amount.
         """
-        balance = sim_data.game_data["balances"][agent_id]
+        allocation = self.initial_resources
 
         prompt = f"""Based on your reasoning, specify your donation amount.
 
-Your current resources: {balance} units
-You can donate any amount from 0 to {balance}.
+This round's allocation: {allocation} units
+You can donate any amount from 0 to {allocation}. You keep whatever you don't donate.
 
 Respond with exactly this format:
 {{"donation": <amount>}}
 
-Where <amount> is a number between 0 and {balance}."""
+Where <amount> is a number between 0 and {allocation}."""
 
         return prompt
 
@@ -302,6 +302,9 @@ Where <amount> is a number between 0 and {balance}."""
         if "balances" not in sim_data.game_data:
             self.initialize_game_data(sim_data)
 
+        # Each agent receives their round allocation
+        allocation = self.initial_resources
+
         # Collect all donations before applying them (simultaneous)
         donations_this_round = []
 
@@ -310,8 +313,8 @@ Where <amount> is a number between 0 and {balance}."""
             donation_amount = response_data["donation_amount"]
             donor_balance = sim_data.game_data["balances"][agent_id]
 
-            # Calculate percentage of resources donated
-            percentage = (donation_amount / donor_balance * 100) if donor_balance > 0 else 0
+            # Calculate percentage of round allocation donated
+            percentage = (donation_amount / allocation * 100) if allocation > 0 else 0
 
             donations_this_round.append({
                 "round": turn,
@@ -322,15 +325,16 @@ Where <amount> is a number between 0 and {balance}."""
                 "donor_balance_before": donor_balance,
             })
 
-        # Apply all donations simultaneously
-        balance_changes = {agent_id: 0 for agent_id in sim_data.agents.keys()}
+        # Apply round allocation and donations simultaneously
+        # Each agent gets: +allocation (round income) - donation_given + donations_received * multiplier
+        balance_changes = {agent_id: allocation for agent_id in sim_data.agents.keys()}
 
         for donation in donations_this_round:
             donor_id = donation["donor_id"]
             recipient_id = donation["recipient_id"]
             amount = donation["amount"]
 
-            # Donor loses amount
+            # Donor loses donated amount from their allocation
             balance_changes[donor_id] -= amount
             # Recipient gains amount * multiplier
             balance_changes[recipient_id] += amount * self.donation_multiplier

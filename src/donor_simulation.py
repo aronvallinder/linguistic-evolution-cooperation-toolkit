@@ -252,9 +252,9 @@ def _execute_game_round(game, turn, sim_data):
     agent_responses = {}
     for agent_id in sim_data.agents.keys():
         partner_id = partner_map[agent_id]
-        balance = sim_data.game_data["balances"][agent_id]
+        allocation = game.initial_resources
         donation_amount = game.extract_donation_amount(
-            donation_responses[agent_id], balance
+            donation_responses[agent_id], allocation
         )
 
         agent_responses[agent_id] = {
@@ -389,7 +389,23 @@ def _get_myth_prompt_with_visibility(myth_writer, agent_id, turn, sim_data, visi
         # Fall back to round 1 prompt if no previous myth
         return myth_writer.get_myth_prompt_round_1(agent_id, turn, sim_data)
 
-    # Build prompt with visible myths
+    # Use custom later_rounds_template if provided
+    if myth_writer.later_rounds_template:
+        # Combine all visible myths into one block for {other_agent_myth}
+        if visible_myths:
+            other_myths_text = "\n\n".join([
+                f"Myth from {other_id}:\n{myth}"
+                for other_id, myth in visible_myths.items()
+            ])
+        else:
+            other_myths_text = "(No myths visible this round.)"
+
+        return myth_writer.later_rounds_template.format(
+            last_myth=own_myth,
+            other_agent_myth=other_myths_text,
+        )
+
+    # Default prompt construction
     if visible_myths:
         other_myths_text = "\n\n".join([
             f"Myth from {other_id}:\n{myth}"

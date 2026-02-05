@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/experiments/run_donor_djx.py", line 100, in <module>
+    run_from_config(sys.argv[1])
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/experiments/run_donor_djx.py", line 69, in run_from_config
+    model = get_default_model()
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/src/utils.py", line 98, in get_default_model
+    provider = get_llm_provider()
+  File "/Users/aron/linguistic-evolution-cooperation-toolkit/src/utils.py", line 51, in get_llm_provider
+    raise EnvironmentError(
+OSError: No API key found. Set one of: OPENROUTER_API_KEY, OPENAI_API_KEY, or GEMINI_API_KEY.
+Optionally set LLM_PROVIDER to explicitly choose: 'openrouter', 'openai', or 'gemini'.

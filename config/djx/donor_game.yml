@@ -1,0 +1,90 @@
+# =============================================================================
+# Donor Game Experiment Grid — djx configuration
+# =============================================================================
+#
+# Run:
+#   djx config/djx/donor_game.yml
+#   djx config/djx/donor_game.yml --dry-run    # preview without executing
+#
+# Each job runs experiments/run_donor_djx.py with a generated config YAML.
+
+define:
+  config_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/config.yml
+  script_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/run.sh
+  log_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/log.log
+  output_file: <<cwd>>/experiments/<<project_id>>/<<datetime>>/<<job_idx>>/result.json
+
+script_template: |
+  cd <<cwd>> && python3 experiments/run_donor_djx.py <<config_file>> > <<log_file>> 2>&1
+
+config_file: <<config_file>>
+script_file: <<script_file>>
+command: bash <<script_file>>
+
+meta:
+  project_id: donor_game
+
+config:
+  # Model — override via grid or CLI; "default" auto-detects from env
+  model: default
+
+  # Persona
+  persona_name: neutral
+  persona_system_addition: ""
+
+  # Output path for simulation results
+  output_path: <<output_file>>
+
+  # Game parameters
+  game_params:
+    initial_resources: 100
+    donation_multiplier: 2
+    population_size: 6
+    context_depth: 2
+    context_width: 2
+
+  # Simulation parameters
+  simulation_params:
+    num_turns: 20
+    temperature: 0.8
+    memory_capacity: 5
+    task_order:
+      - game
+    myth_visibility: all
+    myth_partner_rounds: 2
+
+# =============================================================================
+# Grid — cartesian product of all dimensions
+# =============================================================================
+# Each top-level list entry is a "dimension". djx computes the cartesian product
+# across dimensions, and within each dimension uses the specified format:
+#   - dict of lists → cartesian product within the dimension
+#   - list of dicts → explicit enumeration within the dimension
+#
+# Current grid: task_order × donation_multiplier × persona
+# Total jobs: 3 × 3 × 3 = 27
+# =============================================================================
+
+grid:
+  # Dimension 1: task order variations
+  - - simulation_params.task_order: [game]
+      labels.task_order: game_only
+    - simulation_params.task_order: [game, myth]
+      labels.task_order: game_then_myth
+    - simulation_params.task_order: [myth, game]
+      labels.task_order: myth_then_game
+
+  # Dimension 2: donation multiplier
+  - game_params.donation_multiplier: [2, 3, 5]
+    labels.multiplier: [2, 3, 5]
+
+  # Dimension 3: persona
+  - - persona_name: neutral
+      persona_system_addition: ""
+      labels.persona: neutral
+    - persona_name: altruistic
+      persona_system_addition: "You tend to prioritize others' welfare and act generously, even at personal cost."
+      labels.persona: altruistic
+    - persona_name: selfish
+      persona_system_addition: "You prioritize your own interests and payoffs above all else."
+      labels.persona: selfish
